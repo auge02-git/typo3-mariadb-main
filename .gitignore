@@ -1,4 +1,22 @@
-## TYPO3 v6.2
+/.metadata/
+*.zip
+.gitignore
+/.recommenders/
+.project
+*.old
+*.test
+*.dist
+*.dist.php
+*.test[0-9]
+/clusterconfig/typo3/data-root
+/clusterconfig/typo3/site-config
+/clusterconfig/typo3/typo3conf/site-config
+/clusterconfig/typo3/typo3-data
+/_backup
+/clusterconfig/typo3/typo3_src
+/clusterconfig/typo3/typo3temp
+
+## TYPO3 v6.2 (defaults)
 # Ignore several upload and file directories.
 /fileadmin/user_upload/
 /fileadmin/_temp_/

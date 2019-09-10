@@ -1,0 +1,72 @@
+version: '2'
+services:
+  test-web:
+    image: martinhelmich/test:8
+    container_name: typo3-test-web
+    hostname: web-test-typo3
+    environment:
+      ## SERVER_NAME: web-test-typo3.2age.intranet
+      SERVER_URL: "http://web-test-typo3.2age.intranet/typo3/"
+      LOG_LEVEL: "err"
+      DBMS_SERVER: "mysqldb"
+      DBMS_LOCAL_RUN: 'false'
+      DBMS_REMOTE_LINK: 'true'
+      DBMS_USER: "test"
+      DBMS_PASSWORD: "test1234"
+      DBMS_FQDN: "mysqldb.2age.intranet"
+      DBMS_DATABASE: "test"
+    networks:
+       - apps-test
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 512m
+    external_links:
+      - mysqldb:mysql
+    depends_on:
+      - mysqldb
+    dns: 
+      #- 127.0.0.1
+      - 8.8.8.8
+      - 4.4.4.4
+    ports:
+      - 62080:80
+      #- 62443:443
+    volumes:
+      ## folder of typo3-content on persitents
+      - ../files/test-data/typo3/fileadmin:/var/www/html/fileadmin
+      - ../files/test-data/typo3/uploads:/var/www/html/uploads
+      ## this is a site spezification config
+      - ./site-config/typo3conf:/var/www/html/typo3conf
+      ## only on view default of configs
+      - ./typo3conf/default:/var/www/html/typo3conf.dist
+
+  mysqldb_s02:
+    image: mariadb:10.1.21
+    container_name: mysqldb_s02
+    hostname: maria-s02
+    environment:
+      character-set-server: utf8
+      collation-server: utf8_unicode_ci
+      MYSQL_ROOT_PASSWORD: test1234?
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test1234
+    networks:
+      - apps-test
+      - maria-sync
+    mem_limit: 256m
+    ports: 
+      #- 62306:3306
+    volumes:
+      - ../files/mysql-data/data:/bitnami
+      - ../clusterconfig/mariadb/mysql-conf:/etc/mysql/conf.d
+    expose: ["3306"]
+
+networks:
+  apps-test:
+    external:
+      name: typo3_web_net
+
+  maria-sync:
+     driver: bridge
