@@ -1,0 +1,30 @@
+version: '2'
+services:
+  mysqldb_s01:
+    image: mariadb:10.1.21
+    container_name: mysqldb_s01
+    hostname: maria-s01
+    environment:
+      character-set-server: utf8
+      collation-server: utf8_unicode_ci
+      MYSQL_ROOT_PASSWORD: test1234?
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test1234
+    networks:
+      - maria-sync
+      - dmz-dbms-net
+    mem_limit: 512m
+    ports: 
+      - 62306:3306
+    volumes:
+      - ../files/mysql-data/data:/bitnami
+      - ../clusterconfig/mariadb/mysql-conf:/etc/mysql/conf.d
+    expose: ["3306"]
+
+networks:
+  dmz-dbms-net:
+    external:
+      name: dmz-dbms-net
+
+  maria-sync:
+     driver: bridge
