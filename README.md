@@ -1,6 +1,6 @@
 # Name: Typo3 on Container, 
 # Project-Name: typo3-mariadb-main
-# Destination: https://bitbucket.org/auge02/typo3-mariadb-main.git
+# Destination: https://github.com/auge02-git/typo3-mariadb-main.git
 ## Version: 0.9.1
 ## author: awo on 2019-09-10 09:36 GMT+1
 
