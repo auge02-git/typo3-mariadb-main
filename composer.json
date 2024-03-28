@@ -1,5 +1,5 @@
 {
-  "license": "(LGPL-2.1-only or GPL-3.0-or-later)"
+  "license": "(LGPL-2.1-only or GPL-3.0-or-later)", 
   "authors": [
         {
             "name": "auge02",
@@ -7,8 +7,8 @@
             "homepage": "https://www.two-age.de",
             "role": "Maintern"
         }
-    ]
-    "support": {
+  ], 
+  "support": {
       "email": "support@two-age.de",
-  }
+  },
 }
