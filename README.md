@@ -1,8 +1,9 @@
-# Name: Typo3 on Container as Docker-Compose deployment stack, 
+# Name: Typo3 on Container as Docker-Compose deployment stack 
 # Project-Name: typo3-mariadb-main
 # Destination: https://github.com/auge02-git/typo3-mariadb-main.git
+### History: init and published version 0.9.1 on 2019-09-10 09:36 GMT+1
 ## Version: 0.9.2
-## author: awo on 2019-09-10 09:36 GMT+1
+## author: awo on 2024-03-28 16:16 GMT+1
 
 This project integraded a typo3-container into a mariadb-cluster as centrual database system.
 
