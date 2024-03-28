@@ -3,9 +3,12 @@
   "authors": [
         {
             "name": "auge02",
-            "email": "info@auge02.de",
-            "homepage": "https://www.auge02.de",
+            "email": "info@two-age.de",
+            "homepage": "https://www.two-age.de",
             "role": "Maintern"
         }
     ]
+    "support": {
+      "email": "support@two-age.de",
+  }
 }
