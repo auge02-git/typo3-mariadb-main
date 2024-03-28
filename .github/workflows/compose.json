@@ -1,1 +1,18 @@
-{}
+{
+  "license": "(LGPL-2.1-only or GPL-3.0-or-later)", 
+  "authors": [
+        {
+            "name": "auge02",
+            "email": "info@two-age.de",
+            "homepage": "https://www.two-age.de",
+            "role": "Maintern"
+        }
+  ], 
+  "support": {
+      "email": "support@two-age.de",
+  },
+  "require": {
+      "php": ">=7.4",
+      "ext-mbstring": "*"
+  }
+}
